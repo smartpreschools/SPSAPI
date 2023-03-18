@@ -14,6 +14,7 @@ namespace SPS.API.Controllers
         private readonly ISubscriberService _subscriberService;
         public SubscriberController(ISubscriberService subscriberService)
         {
+
             _subscriberService = subscriberService;
         }
         [Route("api/Subscriber/GetSubscriber")]
