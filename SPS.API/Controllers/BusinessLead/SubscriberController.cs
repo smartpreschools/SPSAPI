@@ -63,5 +63,17 @@ namespace SPS.API.Controllers
                 return Ok(responseData);
             }
         }
+        [Route("api/Subscriber/DeleteSubscriber")]
+        [HttpPut]
+        public IActionResult DeleteSubscriber( int subscriberId)
+        {
+            if (subscriberId == 0)
+                return BadRequest();
+            else
+            {
+                var responseData = _subscriberService.Delete(subscriberId);
+                return Ok(responseData);
+            }
+        }
     }
 }

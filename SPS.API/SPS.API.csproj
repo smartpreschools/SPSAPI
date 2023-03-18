@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\SchoolAdmin\**" />
+    <Content Remove="Controllers\SchoolAdmin\**" />
+    <EmbeddedResource Remove="Controllers\SchoolAdmin\**" />
+    <None Remove="Controllers\SchoolAdmin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -15,10 +22,6 @@
     <ProjectReference Include="..\SPS.Helper\SPS.Helper.csproj" />
     <ProjectReference Include="..\SPS.Repository\SPS.Repository.csproj" />
     <ProjectReference Include="..\SPS.Services\SPS.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\SchoolAdmin\" />
   </ItemGroup>
 
 </Project>
