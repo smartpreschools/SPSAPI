@@ -28,10 +28,13 @@ builder.Services.AddTransient<IUnitOfWork,UnitOfWork>();
 //Services
 builder.Services.AddTransient<ICategoryService,CategoryService>();
 builder.Services.AddTransient<ISubscriberService, SubscriberService>();
+builder.Services.AddTransient<IPhotoGallaryFunctionService, PhotoGallaryFunctionService>();
 
 //Repository
 builder.Services.AddTransient<ICategoryRepository,CategoryRepository>();
 builder.Services.AddTransient<ISubscriberRepository, SubscriberRepository>();
+builder.Services.AddTransient<IPhotoGallaryFunctionRepository, PhotoGallaryFunctionRepository>();
+
 
 var app = builder.Build();
 

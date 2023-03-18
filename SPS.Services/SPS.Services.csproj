@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\BusineesLead\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SPS.Data\SPS.Data.csproj" />
     <ProjectReference Include="..\SPS.Repository\SPS.Repository.csproj" />
   </ItemGroup>

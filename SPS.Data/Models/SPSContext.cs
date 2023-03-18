@@ -19,6 +19,7 @@ namespace SPS.Data.Models
         public virtual DbSet<CategoryDetail> CategoryDetails { get; set; } = null!;
         public virtual DbSet<Subscriber> Subscriber { get; set; } = null!;
 
+        public virtual DbSet<PhotoGallaryFunction> PhotoGallaryFunction { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -47,6 +48,19 @@ namespace SPS.Data.Models
                 entity.Property(e => e.SubscriberAddress).HasMaxLength(250);
                 entity.Property(e => e.Email).HasMaxLength(250);
                 entity.Property(e => e.Mobile).HasMaxLength(250);
+                entity.Property(e => e.IsStatus).HasMaxLength(250);
+                entity.Property(e => e.CreatedBy).HasMaxLength(250);
+                entity.Property(e => e.ModifiedBy).HasMaxLength(250);
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<PhotoGallaryFunction>(entity =>
+            {
+                entity.HasKey(e => e.FunctionId);
+                entity.HasKey(e =>e.SubscriberMasterId);
+                entity.Property(e => e.FunctionName).HasMaxLength(250);
+                entity.Property(e => e.FunctionDescription).HasMaxLength(250);
                 entity.Property(e => e.IsStatus).HasMaxLength(250);
                 entity.Property(e => e.CreatedBy).HasMaxLength(250);
                 entity.Property(e => e.ModifiedBy).HasMaxLength(250);
