@@ -42,7 +42,7 @@ namespace SPS.API.Controllers
         }
         [Route("api/PhotoGallaryFunction/PostPhotoGallaryFunction")]
         [HttpPost]
-        public IActionResult PostPhotoGallaryFunction(PhotoGallaryFunction photoGallaryFunction)
+        public IActionResult PostPhotoGallaryFunction(PhotoGalleryFunction photoGallaryFunction)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -54,7 +54,7 @@ namespace SPS.API.Controllers
         }
         [Route("api/PhotoGallaryFunction/PutPhotoGallaryFunction")]
         [HttpPut]
-        public IActionResult PutPhotoGallaryFunction(PhotoGallaryFunction photoGallaryFunction, int photoGallaryFunctionId)
+        public IActionResult PutPhotoGallaryFunction(PhotoGalleryFunction photoGallaryFunction, int photoGallaryFunctionId)
         {
             if (!ModelState.IsValid && photoGallaryFunctionId != 0)
                 return BadRequest(ModelState);

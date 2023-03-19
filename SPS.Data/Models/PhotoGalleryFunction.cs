@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SPS.Data.Models
 {
-    public class PhotoGallaryFunction
+    public class PhotoGalleryFunction
     {
         public Int64 FunctionId { get; set; }
 
@@ -17,9 +17,9 @@ namespace SPS.Data.Models
         public string FunctionDescription { get; set; }
 
         public Boolean IsStatus { get; set; }
-        public Int64 CreatedBy { get; set; }
+        public int CreatedBy { get; set; }
         public DateTime? CreatedDate { get; set; }
-        public Int64 ModifiedBy { get; set; }
+        public int ModifiedBy { get; set; }
         public DateTime? ModifiedDate { get; set; }
 
     }

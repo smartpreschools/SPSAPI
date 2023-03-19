@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace SPS.Services.Interface
 {
-    public interface IPhotoGallaryFunctionService : IEntityService<PhotoGallaryFunction>
+    public interface IPhotoGallaryFunctionService : IEntityService<PhotoGalleryFunction>
     {
-        Result<PhotoGallaryFunction> Add(PhotoGallaryFunction cm);
-        Result<PhotoGallaryFunction> Delete(int id);
-        Result<PhotoGallaryFunction> Edit(int id, PhotoGallaryFunction cm);
-        IEnumerable<PhotoGallaryFunction> GetPhotoGallaryFunction();
-        PhotoGallaryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId);
+        Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm);
+        Result<PhotoGalleryFunction> Delete(int id);
+        Result<PhotoGalleryFunction> Edit(int id, PhotoGalleryFunction cm);
+        IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction();
+        PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId);
     }
 }

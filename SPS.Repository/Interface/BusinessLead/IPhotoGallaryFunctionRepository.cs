@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SPS.Repository.Interface
 {
-    public interface IPhotoGallaryFunctionRepository : IGenericRepository<PhotoGallaryFunction>
+    public interface IPhotoGallaryFunctionRepository : IGenericRepository<PhotoGalleryFunction>
     {
-        IEnumerable<PhotoGallaryFunction> GetPhotoGallaryFunction();
-        PhotoGallaryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId);
+        IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction();
+        PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId);
     }
 }
 

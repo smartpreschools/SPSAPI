@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SPS.Services.Services
 {
-    public class PhotoGallaryFunctionService : EntityService<PhotoGallaryFunction>, IPhotoGallaryFunctionService
+    public class PhotoGallaryFunctionService : EntityService<PhotoGalleryFunction>, IPhotoGallaryFunctionService
     {
         private readonly IPhotoGallaryFunctionRepository _photoGallaryFunctionRepository;
         public PhotoGallaryFunctionService(IUnitOfWork unitOfWork, IPhotoGallaryFunctionRepository photoGallaryFunctionRepository) :
@@ -20,9 +20,9 @@ namespace SPS.Services.Services
             UnitOfWork = unitOfWork;
             _photoGallaryFunctionRepository = photoGallaryFunctionRepository;
         }
-        public Result<PhotoGallaryFunction> Add(PhotoGallaryFunction cm)
+        public Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm)
         {
-            var res = new Result<PhotoGallaryFunction>()
+            var res = new Result<PhotoGalleryFunction>()
             {
                 IsSuccess = false,
                 Errors = new List<String>(),
@@ -37,9 +37,9 @@ namespace SPS.Services.Services
             return res;
         }
 
-        public Result<PhotoGallaryFunction> Delete(int id)
+        public Result<PhotoGalleryFunction> Delete(int id)
         {
-            var res = new Result<PhotoGallaryFunction>()
+            var res = new Result<PhotoGalleryFunction>()
             {
                 IsSuccess = false,
                 Errors = new List<String>(),
@@ -61,9 +61,9 @@ namespace SPS.Services.Services
             return res;
         }
 
-        public Result<PhotoGallaryFunction> Edit(int id, PhotoGallaryFunction cm)
+        public Result<PhotoGalleryFunction> Edit(int id, PhotoGalleryFunction cm)
         {
-            var res = new Result<PhotoGallaryFunction>()
+            var res = new Result<PhotoGalleryFunction>()
             {
                 IsSuccess = false,
                 Errors = new List<String>(),
@@ -91,11 +91,11 @@ namespace SPS.Services.Services
             return res;
         }
 
-        public IEnumerable<PhotoGallaryFunction> GetPhotoGallaryFunction()
+        public IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction()
         {
             return _photoGallaryFunctionRepository.GetPhotoGallaryFunction();
         }
-        public PhotoGallaryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId)
+        public PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId)
         {
             return _photoGallaryFunctionRepository.GetPhotoGallaryFunctionById(photoGallaryFunctionMasterId);
         }

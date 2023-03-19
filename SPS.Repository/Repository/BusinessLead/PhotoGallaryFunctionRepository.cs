@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 
 namespace SPS.Repository.Repository
 {
-    public class PhotoGallaryFunctionRepository : GenericRepository<PhotoGallaryFunction>, IPhotoGallaryFunctionRepository
+    public class PhotoGallaryFunctionRepository : GenericRepository<PhotoGalleryFunction>, IPhotoGallaryFunctionRepository
     {
         public PhotoGallaryFunctionRepository(SPSContext context) : base(context)
         {
         }
 
-        public IEnumerable<PhotoGallaryFunction> GetPhotoGallaryFunction()
+        public IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction()
         {
-            return Context.PhotoGallaryFunction.Where(x => x.IsStatus == true).ToList();
+            return Context.PhotoGalleryFunction.Where(x => x.IsStatus == true).ToList();
         }
-        public PhotoGallaryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId)
+        public PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId)
         {
             return FirstOrDefault(x => x.FunctionId == photoGallaryFunctionMasterId && x.IsStatus == true);
         }
