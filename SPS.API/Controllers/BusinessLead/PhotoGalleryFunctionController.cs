@@ -10,69 +10,69 @@ namespace SPS.API.Controllers
 {
 
     [ApiController]
-    public class PhotoGallaryFunctionController : ControllerBase
+    public class PhotoGalleryFunctionController : ControllerBase
     {
-        private readonly IPhotoGallaryFunctionService _photoGallaryFunctionService;
-        public PhotoGallaryFunctionController(IPhotoGallaryFunctionService photoGallaryFunctionService)
+        private readonly IPhotoGalleryFunctionService _photoGalleryFunctionService;
+        public PhotoGalleryFunctionController(IPhotoGalleryFunctionService photoGalleryFunctionService)
         {
 
-            _photoGallaryFunctionService = photoGallaryFunctionService;
+            _photoGalleryFunctionService = photoGalleryFunctionService;
         }
-        [Route("api/PhotoGallaryFunction/GetPhotoGallaryFunction")]
+        [Route("api/PhotoGalleryFunction/GetPhotoGalleryFunction")]
         [HttpGet]
-        public IActionResult GetPhotoGallaryFunction()
+        public IActionResult GetPhotoGalleryFunction()
         {
-            var responseData = _photoGallaryFunctionService.GetPhotoGallaryFunction();
+            var responseData = _photoGalleryFunctionService.GetPhotoGalleryFunction();
             if (responseData == null)
                 return NoContent();
             else
                 return Ok(responseData);
         }
-        [Route("api/PhotoGallaryFunction/GetPhotoGallaryFunctionById")]
+        [Route("api/PhotoGalleryFunction/GetPhotoGalleryFunctionById")]
         [HttpGet]
-        public IActionResult GetPhotoGallaryFunctionById(int photoGallaryFunctionId)
+        public IActionResult GetPhotoGalleryFunctionById(int photoGalleryFunctionId)
         {
-            if (photoGallaryFunctionId != 0)
+            if (photoGalleryFunctionId != 0)
             {
-                var responseData = _photoGallaryFunctionService.GetPhotoGallaryFunction();
+                var responseData = _photoGalleryFunctionService.GetPhotoGalleryFunction();
                 return Ok(responseData);
             }
             else
                 return BadRequest();
         }
-        [Route("api/PhotoGallaryFunction/PostPhotoGallaryFunction")]
+        [Route("api/PhotoGalleryFunction/PostPhotoGalleryFunction")]
         [HttpPost]
-        public IActionResult PostPhotoGallaryFunction(PhotoGalleryFunction photoGallaryFunction)
+        public IActionResult PostPhotoGalleryFunction(PhotoGalleryFunction photoGalleryFunction)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             else
             {
-                var responseData = _photoGallaryFunctionService.Add(photoGallaryFunction);
+                var responseData = _photoGalleryFunctionService.Add(photoGalleryFunction);
                 return Ok(responseData);
             }
         }
-        [Route("api/PhotoGallaryFunction/PutPhotoGallaryFunction")]
+        [Route("api/PhotoGalleryFunction/PutPhotoGalleryFunction")]
         [HttpPut]
-        public IActionResult PutPhotoGallaryFunction(PhotoGalleryFunction photoGallaryFunction, int photoGallaryFunctionId)
+        public IActionResult PutPhotoGalleryFunction(PhotoGalleryFunction photoGalleryFunction, int photoGalleryFunctionId)
         {
-            if (!ModelState.IsValid && photoGallaryFunctionId != 0)
+            if (!ModelState.IsValid && photoGalleryFunctionId != 0)
                 return BadRequest(ModelState);
             else
             {
-                var responseData = _photoGallaryFunctionService.Edit(photoGallaryFunctionId, photoGallaryFunction);
+                var responseData = _photoGalleryFunctionService.Edit(photoGalleryFunctionId, photoGalleryFunction);
                 return Ok(responseData);
             }
         }
-        [Route("api/PhotoGallaryFunction/DeletePhotoGallaryFunction")]
+        [Route("api/PhotoGalleryFunction/DeletePhotoGalleryFunction")]
         [HttpDelete]
-        public IActionResult DeletePhotoGallaryFunction(int photoGallaryFunctionId)
+        public IActionResult DeletePhotoGalleryFunction(int photoGalleryFunctionId)
         {
-            if (photoGallaryFunctionId == 0)
+            if (photoGalleryFunctionId == 0)
                 return BadRequest();
             else
             {
-                var responseData = _photoGallaryFunctionService.Delete(photoGallaryFunctionId);
+                var responseData = _photoGalleryFunctionService.Delete(photoGalleryFunctionId);
                 return Ok(responseData);
             }
         }
