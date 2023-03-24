@@ -20,7 +20,7 @@ namespace SPS.Services.Services
             UnitOfWork = unitOfWork;
             _photoGalleryFunctionRepository = photoGalleryFunctionRepository;
         }
-        public Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm)
+        public Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm, int subscriberMasterId)
         {
             var res = new Result<PhotoGalleryFunction>()
             {
@@ -36,6 +36,10 @@ namespace SPS.Services.Services
             }
             return res;
         }
+
+
+       
+
 
         public Result<PhotoGalleryFunction> Delete(int id)
         {
@@ -76,6 +80,7 @@ namespace SPS.Services.Services
                 return res;
             }
 
+            cmDataById.SubscriberMasterId = cm.SubscriberMasterId;
             cmDataById.FunctionName = cm.FunctionName;
             cmDataById.FunctionDescription = cm.FunctionDescription;
 
@@ -95,9 +100,14 @@ namespace SPS.Services.Services
         {
             return _photoGalleryFunctionRepository.GetPhotoGalleryFunction();
         }
-        public PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionMasterId)
+        public PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionId)
         {
-            return _photoGalleryFunctionRepository.GetPhotoGalleryFunctionById(photoGalleryFunctionMasterId);
+            return _photoGalleryFunctionRepository.GetPhotoGalleryFunctionById(photoGalleryFunctionId);
+        }
+
+        public PhotoGalleryFunction PostPhotoGalleryFunction(int photoGalleryFunctionId, int subscriberMasterId)
+        {
+            return _photoGalleryFunctionRepository.PostPhotoGalleryFunction(photoGalleryFunctionId, subscriberMasterId);
         }
     }
 }

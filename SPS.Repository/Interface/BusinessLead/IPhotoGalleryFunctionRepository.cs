@@ -12,7 +12,8 @@ namespace SPS.Repository.Interface
     public interface IPhotoGalleryFunctionRepository : IGenericRepository<PhotoGalleryFunction>
     {
         IEnumerable<PhotoGalleryFunction> GetPhotoGalleryFunction();
-        PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionMasterId);
+        PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionId);
+        PhotoGalleryFunction PostPhotoGalleryFunction(int photoGalleryFunctionId,int subscriberMasterId);
     }
 }
 

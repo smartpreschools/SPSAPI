@@ -20,9 +20,15 @@ namespace SPS.Repository.Repository
         {
             return Context.PhotoGalleryFunction.Where(x => x.IsStatus == true).ToList();
         }
-        public PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionMasterId)
+        public PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionId)
         {
-            return FirstOrDefault(x => x.FunctionId == photoGalleryFunctionMasterId && x.IsStatus == true);
+            return FirstOrDefault(x => x.FunctionId == photoGalleryFunctionId && x.IsStatus == true);
+        }
+
+
+        public PhotoGalleryFunction PostPhotoGalleryFunction(int photoGalleryFunctionId, int subscriberMasterId)
+        {
+            return FirstOrDefault(x => x.SubscriberMasterId == subscriberMasterId && x.IsStatus == true);
         }
     }
 }

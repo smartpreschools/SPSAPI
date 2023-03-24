@@ -42,13 +42,13 @@ namespace SPS.API.Controllers
         }
         [Route("api/PhotoGalleryFunction/PostPhotoGalleryFunction")]
         [HttpPost]
-        public IActionResult PostPhotoGalleryFunction(PhotoGalleryFunction photoGalleryFunction)
+        public IActionResult PostPhotoGalleryFunction(PhotoGalleryFunction photoGalleryFunction,int subscriberMasterId)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid && subscriberMasterId !=0)
                 return BadRequest(ModelState);
             else
             {
-                var responseData = _photoGalleryFunctionService.Add(photoGalleryFunction);
+                var responseData = _photoGalleryFunctionService.Add(photoGalleryFunction, subscriberMasterId);
                 return Ok(responseData);
             }
         }
