@@ -26,14 +26,13 @@ builder.Services.AddDbContext<SPSContext>(options =>
 //ApiModule.RegisterDependecy(builder.Services);
 builder.Services.AddTransient<IUnitOfWork,UnitOfWork>();
 //Services
-builder.Services.AddTransient<ICategoryService,CategoryService>();
+
 builder.Services.AddTransient<ISubscriberService, SubscriberService>();
-builder.Services.AddTransient<IPhotoGallaryFunctionService, PhotoGallaryFunctionService>();
+builder.Services.AddTransient<IPhotoGalleryService, PhotoGalleryService>();
 
 //Repository
-builder.Services.AddTransient<ICategoryRepository,CategoryRepository>();
 builder.Services.AddTransient<ISubscriberRepository, SubscriberRepository>();
-builder.Services.AddTransient<IPhotoGallaryFunctionRepository, PhotoGallaryFunctionRepository>();
+builder.Services.AddTransient<IPhotoGallaryRepository, PhotoGallaryRepository>();
 
 
 var app = builder.Build();

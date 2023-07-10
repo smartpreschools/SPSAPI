@@ -1,7 +1,5 @@
-﻿
-using SPS.Data.Models;
+﻿using SPS.Data.Models;
 using SPS.Repository.Interface;
-using SPS.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SPS.Repository.Repository
 {
-    public class PhotoGallaryFunctionRepository : GenericRepository<PhotoGalleryFunction>, IPhotoGallaryFunctionRepository
+    public class PhotoGallaryRepository : GenericRepository<PhotoGalleryFunction>, IPhotoGallaryRepository
     {
-        public PhotoGallaryFunctionRepository(SPSContext context) : base(context)
+        public PhotoGallaryRepository(SPSContext context) : base(context)
         {
         }
 

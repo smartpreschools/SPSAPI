@@ -1,8 +1,7 @@
-﻿
-using SPS.Data.Models;
+﻿using SPS.Data.Models;
 using SPS.Repository.Interface;
+using SPS.Repository.Repository;
 using SPS.Services.Interface;
-using SPS.Services.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +10,14 @@ using System.Threading.Tasks;
 
 namespace SPS.Services.Services
 {
-    public class PhotoGallaryFunctionService : EntityService<PhotoGalleryFunction>, IPhotoGallaryFunctionService
+    public class PhotoGalleryService : EntityService<PhotoGalleryFunction>, IPhotoGalleryService
     {
-        private readonly IPhotoGallaryFunctionRepository _photoGallaryFunctionRepository;
-        public PhotoGallaryFunctionService(IUnitOfWork unitOfWork, IPhotoGallaryFunctionRepository photoGallaryFunctionRepository) :
-            base(unitOfWork, photoGallaryFunctionRepository)
+        private readonly IPhotoGallaryRepository _photoGallaryRepository;
+        public PhotoGalleryService(IUnitOfWork unitOfWork, IPhotoGallaryRepository photoGallaryRepository) :
+            base(unitOfWork, photoGallaryRepository)
         {
             UnitOfWork = unitOfWork;
-            _photoGallaryFunctionRepository = photoGallaryFunctionRepository;
+            _photoGallaryRepository = photoGallaryRepository;
         }
         public Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm)
         {
@@ -45,7 +44,7 @@ namespace SPS.Services.Services
                 Errors = new List<String>(),
                 Data = null
             };
-            var cm = _photoGallaryFunctionRepository.GetPhotoGallaryFunctionById(id);
+            var cm = _photoGallaryRepository.GetPhotoGallaryFunctionById(id);
             if (cm == null)
             {
                 res.Errors.Add($"We could not find the Function with id = {id.ToString()}");
@@ -69,7 +68,7 @@ namespace SPS.Services.Services
                 Errors = new List<String>(),
                 Data = null
             };
-            var cmDataById = _photoGallaryFunctionRepository.GetPhotoGallaryFunctionById(id);
+            var cmDataById = _photoGallaryRepository.GetPhotoGallaryFunctionById(id);
             if (cmDataById == null)
             {
                 res.Errors.Add($"We could not find the subscriber with id = {id.ToString()}");
@@ -93,11 +92,12 @@ namespace SPS.Services.Services
 
         public IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction()
         {
-            return _photoGallaryFunctionRepository.GetPhotoGallaryFunction();
+            return _photoGallaryRepository.GetPhotoGallaryFunction();
         }
         public PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId)
         {
-            return _photoGallaryFunctionRepository.GetPhotoGallaryFunctionById(photoGallaryFunctionMasterId);
+            return _photoGallaryRepository.GetPhotoGallaryFunctionById(photoGallaryFunctionMasterId);
         }
     }
 }
+

@@ -12,17 +12,16 @@ namespace SPS.API.Controllers
     [ApiController]
     public class PhotoGallaryFunctionController : ControllerBase
     {
-        private readonly IPhotoGallaryFunctionService _photoGallaryFunctionService;
-        public PhotoGallaryFunctionController(IPhotoGallaryFunctionService photoGallaryFunctionService)
+        private readonly IPhotoGalleryService _photoGallaryService;
+        public PhotoGallaryFunctionController(IPhotoGalleryService _photoGallaryService)
         {
-
-            _photoGallaryFunctionService = photoGallaryFunctionService;
+            _photoGallaryService = _photoGallaryService;
         }
         [Route("api/PhotoGallaryFunction/GetPhotoGallaryFunction")]
         [HttpGet]
         public IActionResult GetPhotoGallaryFunction()
         {
-            var responseData = _photoGallaryFunctionService.GetPhotoGallaryFunction();
+            var responseData = _photoGallaryService.GetPhotoGallaryFunction();
             if (responseData == null)
                 return NoContent();
             else
@@ -34,7 +33,7 @@ namespace SPS.API.Controllers
         {
             if (photoGallaryFunctionId != 0)
             {
-                var responseData = _photoGallaryFunctionService.GetPhotoGallaryFunction();
+                var responseData = _photoGallaryService.GetPhotoGallaryFunction();
                 return Ok(responseData);
             }
             else
@@ -48,7 +47,7 @@ namespace SPS.API.Controllers
                 return BadRequest(ModelState);
             else
             {
-                var responseData = _photoGallaryFunctionService.Add(photoGallaryFunction);
+                var responseData = _photoGallaryService.Add(photoGallaryFunction);
                 return Ok(responseData);
             }
         }
@@ -60,7 +59,7 @@ namespace SPS.API.Controllers
                 return BadRequest(ModelState);
             else
             {
-                var responseData = _photoGallaryFunctionService.Edit(photoGallaryFunctionId, photoGallaryFunction);
+                var responseData = _photoGallaryService.Edit(photoGallaryFunctionId, photoGallaryFunction);
                 return Ok(responseData);
             }
         }
@@ -72,7 +71,7 @@ namespace SPS.API.Controllers
                 return BadRequest();
             else
             {
-                var responseData = _photoGallaryFunctionService.Delete(photoGallaryFunctionId);
+                var responseData = _photoGallaryService.Delete(photoGallaryFunctionId);
                 return Ok(responseData);
             }
         }

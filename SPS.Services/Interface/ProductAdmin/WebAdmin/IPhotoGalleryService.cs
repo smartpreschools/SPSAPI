@@ -1,15 +1,14 @@
-﻿
-using SPS.Data.Models;
-using SPS.Services.Interface;
+﻿using SPS.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SPS.Services.Interface;
 
 namespace SPS.Services.Interface
 {
-    public interface IPhotoGallaryFunctionService : IEntityService<PhotoGalleryFunction>
+    public interface IPhotoGalleryService : IEntityService<PhotoGalleryFunction>
     {
         Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm);
         Result<PhotoGalleryFunction> Delete(int id);
