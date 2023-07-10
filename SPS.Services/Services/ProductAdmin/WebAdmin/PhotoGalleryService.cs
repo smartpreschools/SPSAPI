@@ -19,7 +19,7 @@ namespace SPS.Services.Services
             UnitOfWork = unitOfWork;
             _photoGallaryRepository = photoGallaryRepository;
         }
-        public Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm)
+        public Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm, int subscriberMasterId)
         {
             var res = new Result<PhotoGalleryFunction>()
             {
@@ -35,7 +35,6 @@ namespace SPS.Services.Services
             }
             return res;
         }
-
         public Result<PhotoGalleryFunction> Delete(int id)
         {
             var res = new Result<PhotoGalleryFunction>()
@@ -45,6 +44,7 @@ namespace SPS.Services.Services
                 Data = null
             };
             var cm = _photoGallaryRepository.GetPhotoGallaryFunctionById(id);
+
             if (cm == null)
             {
                 res.Errors.Add($"We could not find the Function with id = {id.ToString()}");
@@ -59,7 +59,6 @@ namespace SPS.Services.Services
             }
             return res;
         }
-
         public Result<PhotoGalleryFunction> Edit(int id, PhotoGalleryFunction cm)
         {
             var res = new Result<PhotoGalleryFunction>()
@@ -75,6 +74,7 @@ namespace SPS.Services.Services
                 return res;
             }
 
+            cmDataById.SubscriberMasterId = cm.SubscriberMasterId;
             cmDataById.FunctionName = cm.FunctionName;
             cmDataById.FunctionDescription = cm.FunctionDescription;
 
@@ -89,15 +89,15 @@ namespace SPS.Services.Services
             }
             return res;
         }
-
-        public IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction()
+        public IEnumerable<PhotoGalleryFunction> GetPhotoGalleryFunction()
         {
             return _photoGallaryRepository.GetPhotoGallaryFunction();
         }
-        public PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId)
+        public PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionId)
         {
-            return _photoGallaryRepository.GetPhotoGallaryFunctionById(photoGallaryFunctionMasterId);
+            return _photoGallaryRepository.GetPhotoGallaryFunctionById(photoGalleryFunctionId);
         }
+        
     }
 }
 

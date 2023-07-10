@@ -10,10 +10,12 @@ namespace SPS.Services.Interface
 {
     public interface IPhotoGalleryService : IEntityService<PhotoGalleryFunction>
     {
-        Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm);
+        Result<PhotoGalleryFunction> Add(PhotoGalleryFunction cm,int subscriberMasterId);
         Result<PhotoGalleryFunction> Delete(int id);
         Result<PhotoGalleryFunction> Edit(int id, PhotoGalleryFunction cm);
-        IEnumerable<PhotoGalleryFunction> GetPhotoGallaryFunction();
-        PhotoGalleryFunction GetPhotoGallaryFunctionById(int photoGallaryFunctionMasterId);
+        IEnumerable<PhotoGalleryFunction> GetPhotoGalleryFunction();
+
+        PhotoGalleryFunction GetPhotoGalleryFunctionById(int photoGalleryFunctionId);
+        
     }
 }
